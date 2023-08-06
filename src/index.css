@@ -13,23 +13,78 @@
 }
 
 body{
-background-color: #EEF5FF;
 font-family: Ubuntu;
 }
 
-.container{
-width: 65%;
-height:80vh;
+.header{
+height: 12rem;
+background-image: url('../src/assets/images/bg-sidebar-mobile.svg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+.body{
+position: relative;
+height: 62vh;
+background-color: #EEF5FF;
+}
+.inner{
+position: absolute;
+margin: 0 1.5rem;
+min-height: 60vh;
+background-color: white;
+padding: 1rem 2rem;
+top: -6.5rem;
+}
+.footer{
+margin: 1rem 1.5rem;
+}
+.footer .buttons .next{
+background-color: #174A8B;
+}
+
+
+/* ------ This is the query for the medium and large screen sizes ------- */
+
+@media screen and (min-width:768px){
+body{
+background-color: #EEF5FF;
+}
+
+.destop{
+width: 80%;
+min-height:80vh;
 margin:4rem auto
 }
 
 .sidebar{
 background-image: url('../src/assets/images/bg-sidebar-desktop.svg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+min-height: 76vh;
+
+}
+
+.main{
+padding: 3rem 3rem;
+}
+.main .buttons .next{
+background-color: #174A8B;
+}
+}
+@media screen and (min-width:1000px){
+body{
+background-color: #EEF5FF;
+}
+
+.destop{
+width: 65%;
+height:80vh;
+margin:4rem auto
 }
 
 .main{
 padding: 3rem 5rem;
 }
-.main .buttons .next{
-background-color: #174A8B;
 }

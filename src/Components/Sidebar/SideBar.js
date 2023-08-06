@@ -3,7 +3,7 @@ import "./sidebar.css";
 
 const SideBar = () => {
   return (
-    <div className="text-white p-3">
+    <div className="text-white py-3 px-xl-3">
       <div className="step">
         <div className="num me-4 one active">1</div>
         <div className="stepOne">

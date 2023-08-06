@@ -8,7 +8,7 @@ const StepOne = () => {
 const formik= useFormik({
 initialValues:{
 name:'',
-email:'',
+Email:'',
 phone_number:''
 },
 onSubmit:(values)=>{
@@ -16,7 +16,7 @@ console.log(values);
 },
 validationSchema: yup.object({
 name: yup.string().required('This field is required').matches(/^[a-zA-Z]{3,}$/, 'It must be at least three characters'),
-email: yup.string().email().required('This field is required').matches(/^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/, 'Must follow the email pattern'),
+Email: yup.string().email().required('This field is required').matches(/^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/, 'Must follow the email pattern'),
 phone_number: yup.string().required('This field is required').matches(/^[0-9]{11}$/, 'It must be eleven digits')
 })
 })
@@ -41,8 +41,8 @@ phone_number: yup.string().required('This field is required').matches(/^[0-9]{11
           <label htmlFor="">
             Email Address
           </label>
-           {formik.touched.email && <small className="text-danger fw-bold float-end">{formik.errors.email}</small>}
-          <input type="email" name="email" id="" className={`form-control ${formik.errors.email && 'error'}`} placeholder="e.g stephenking@lorem.com" />
+           {formik.touched.Email && <small className="text-danger fw-bold float-end">{formik.errors.Email}</small>}
+          <input type="email" name="Email" id="" className={`form-control ${formik.errors.Email && 'error'}`} placeholder="e.g stephenking@lorem.com" />
         </div>
         <div className="phone_number my-4">
           <label htmlFor="">

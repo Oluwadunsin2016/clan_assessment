@@ -1,9 +1,10 @@
-.step{
-margin-top: 20px;
+.steps{
+/* padding-top: 20px; */
 display: flex;
+justify-content: center;
 align-items: center;
 }
-.step .num{
+.steps .num{
 border: 1px solid white;
 height: 2rem;
 width: 2rem;
@@ -16,15 +17,4 @@ font-weight: bold;
 .active{
 background-color: #EEF5FF;
 color: black;
-}
-
-.step span{
-font-size: 13px;
-color: rgb(202, 198, 198);
-font-weight: lighter;
-}
-.step h6{
-font-size: 14px;
-font-weight: bold;
-letter-spacing: 2px;
 }
