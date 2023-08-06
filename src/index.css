@@ -1,0 +1,35 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url('../src/assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+  src: url('../src/assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  src: url('../src/assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+body{
+background-color: #EEF5FF;
+font-family: Ubuntu;
+}
+
+.container{
+width: 65%;
+height:80vh;
+margin:4rem auto
+}
+
+.sidebar{
+background-image: url('../src/assets/images/bg-sidebar-desktop.svg');
+}
+
+.main{
+padding: 3rem 5rem;
+}
+.main .buttons .next{
+background-color: #174A8B;
+}
