@@ -23,6 +23,7 @@ const StepTwo = () => {
             <div className="ms-2 mt-md-4">
               <h6 className="m-0 fw-bold">Arcade</h6>
               <span>$9/mo</span>
+              <p className="m-0">2 months free</p>
             </div>
           </div>
         </div>
@@ -38,6 +39,7 @@ const StepTwo = () => {
             <div className="ms-2 mt-md-4">
               <h6 className="m-0 fw-bold">Advanced</h6>
               <span>$12/mo</span>
+              <p className="m-0">2 months free</p>
             </div>
           </div>
         </div>
@@ -53,17 +55,18 @@ const StepTwo = () => {
             <div className="ms-2 mt-md-4">
               <h6 className="m-0 fw-bold">Pro</h6>
               <span>$15/mo</span>
+              <p className="m-0">2 months free</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="toggle d-flex justify-content-center gap-3 p-2 bg-light rounded">
-      <span>monthly</span>
+      <span>Monthly</span>
       <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
 </div>
-      <span>yearly</span>
+      <span>Yearly</span>
       </div>
     </div>
   );

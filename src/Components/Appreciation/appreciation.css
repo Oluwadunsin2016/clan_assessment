@@ -1,0 +1,14 @@
+.appreciation{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.appreciationd h2{
+font-weight: bolder;
+}
+.appreciation span{
+color: rgb(170, 168, 168);
+text-align: center;
+}
