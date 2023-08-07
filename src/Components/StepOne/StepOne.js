@@ -1,25 +1,10 @@
 import React from "react";
 import "./stepOne.css";
-import { useFormik } from "formik";
-import * as yup from 'yup'
 
-const StepOne = () => {
 
-const formik= useFormik({
-initialValues:{
-name:'',
-Email:'',
-phone_number:''
-},
-onSubmit:(values)=>{
-console.log(values);
-},
-validationSchema: yup.object({
-name: yup.string().required('This field is required').matches(/^[a-zA-Z]{3,}$/, 'It must be at least three characters'),
-Email: yup.string().email().required('This field is required').matches(/^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/, 'Must follow the email pattern'),
-phone_number: yup.string().required('This field is required').matches(/^[0-9]{11}$/, 'It must be eleven digits')
-})
-})
+const StepOne = ({formik}) => {
+
+
 
   return (
     <div className="container-fluid h-100">

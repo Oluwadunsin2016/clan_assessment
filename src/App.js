@@ -13,43 +13,43 @@ import StepTwo from "./Components/StepTwo/StepTwo";
 import StepThree from "./Components/StepThree/StepThree";
 import StepFour from "./Components/StepFour/StepFour";
 import Appreciation from "./Components/Appreciation/Appreciation";
+import { useFormik } from "formik";
+import * as yup from 'yup'
 
 const App = () => {
-  const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(sessionStorage.currentPage?sessionStorage.currentPage:1);
-  const [completed, setCompleted] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [completed, setCompleted] = useState(false);
+
+
+  const formik= useFormik({
+initialValues:{
+name:'',
+Email:'',
+phone_number:''
+},
+onSubmit:(values)=>{
+console.log(values);
+},
+validationSchema: yup.object({
+name: yup.string().required('This field is required').matches(/^[a-zA-Z]{3,}$/, 'It must be at least three characters'),
+Email: yup.string().email().required('This field is required').matches(/^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/, 'Must follow the email pattern'),
+phone_number: yup.string().required('This field is required').matches(/^[0-9]{11}$/, 'It must be eleven digits')
+})
+})
 
   const goToNext = () => {
     if (currentPage < 4) {
-    if(sessionStorage.currentPage){
-    let page = JSON.parse(sessionStorage.getItem('currentPage'))
-    sessionStorage.setItem('currentPage',JSON.stringify(page + 1))
-      setCurrentPage( page + 1);
-    }else{
-      setCurrentPage((page)=> page + 1);
-    sessionStorage.setItem('currentPage',JSON.stringify(currentPage + 1))
-    
-    }
-      navigate(`/step${currentPage + 1}`);
+      setCurrentPage((page) => page + 1);
     }
   };
-
   const goBack = () => {
     if (currentPage > 1) {
-       if(sessionStorage.currentPage){
-    let page = JSON.parse(sessionStorage.getItem('currentPage'))
-    sessionStorage.setItem('currentPage',JSON.stringify(page - 1))
-      setCurrentPage( page - 1);
-    }else{
-      setCurrentPage((page)=> page - 1);
-    sessionStorage.setItem('currentPage',JSON.stringify(currentPage - 1))
-    }
-      navigate(-1);
+      setCurrentPage((page) => page - 1);
     }
   };
 
   const finished = () => {
-  setCompleted(true)
+    setCompleted(true);
   };
 
   return (
@@ -58,25 +58,21 @@ const App = () => {
         <div className="header">
           <Header currentPage={currentPage} />
         </div>
-        <div className='body'>
+        <div className="body">
           <div className="inner rounded shadow">
-           <div className={`${completed && 'd-none'}`}>
-            <Routes>
-              <Route path="/" element={<Navigate to="/step1" />} />
-              <Route path="step1" element={<StepOne />} />
-              <Route path="step2" element={<StepTwo />} />
-              <Route path="step3" element={<StepThree />} />
-              <Route path="step4" element={<StepFour />} />
-              {/* <Route path="/step4" element={<Appreciation/>}/> */}
-            </Routes>
-           </div>
+            <div className={`${completed && "d-none"}`}>
+              {currentPage == 1 && <StepOne formik={formik}/>}
+              {currentPage == 2 && <StepTwo />}
+              {currentPage == 3 && <StepThree />}
+              {currentPage == 4 && <StepFour />}
+            </div>
 
-           <div className={`${!completed && 'd-none'}`}>
-             <Appreciation/>
-           </div>
+            <div className={`${!completed && "d-none"}`}>
+              <Appreciation />
+            </div>
           </div>
         </div>
-        <div className={`footer ${completed && 'd-none'}`}>
+        <div className={`footer ${completed && "d-none"}`}>
           <div className="buttons">
             <button
               className={`btn btn-light text-secondary previous ${
@@ -111,14 +107,13 @@ const App = () => {
         <div className="sidebar col-md-4 col-xg-3 rounded">
           <SideBar currentPage={currentPage} />
         </div>
-        <div className={`main col-md-8 col-xg-9 h-100 ${completed && 'd-none'}`}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/step1" />} />
-            <Route path="step1" element={<StepOne />} />
-            <Route path="step2" element={<StepTwo />} />
-            <Route path="step3" element={<StepThree />} />
-            <Route path="step4" element={<StepFour />} />
-          </Routes>
+        <div
+          className={`main col-md-8 col-xg-9 h-100 ${completed && "d-none"}`}
+        >
+          {currentPage == 1 && <StepOne formik={formik}/>}
+          {currentPage == 2 && <StepTwo />}
+          {currentPage == 3 && <StepThree />}
+          {currentPage == 4 && <StepFour />}
           <div className="buttons mt-md-4 mt-lg-0">
             <button
               className={`btn btn-light text-secondary previous ${
@@ -146,8 +141,10 @@ const App = () => {
             </button>
           </div>
         </div>
-        <div className={`main col-md-8 col-xg-9 h-100 ${!completed && 'd-none'}`}>
-        <Appreciation/>
+        <div
+          className={`main col-md-8 col-xg-9 h-100 ${!completed && "d-none"}`}
+        >
+          <Appreciation />
         </div>
       </div>
     </>
