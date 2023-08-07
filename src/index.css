@@ -44,6 +44,10 @@ margin: 1rem 1.5rem;
 background-color: #174A8B;
 }
 
+.footer .buttons .confirm{
+background-color: #4840F8;
+}
+
 
 /* ------ This is the query for the medium and large screen sizes ------- */
 
@@ -73,6 +77,10 @@ padding: 3rem 3rem;
 .main .buttons .next{
 background-color: #174A8B;
 }
+.main .buttons .confirm{
+background-color: #4840F8;
+}
+
 }
 @media screen and (min-width:1000px){
 body{

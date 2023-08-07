@@ -5,6 +5,7 @@ import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 
 const StepTwo = () => {
+
   return (
     <div className="container-fluid h-100">
       <h2>Select your plan</h2>
