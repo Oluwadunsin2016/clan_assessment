@@ -43,7 +43,7 @@ const StepFour = ({ formik,setCurrentPage }) => {
               : "per year"
           })`}
         </span>
-        <h5 className="fw-bold">{formik.values.plan.subscription.endsWith("mo")?`$${formik.values.totalPrice}/mo`:`+$${formik.values.totalPrice}/yr`}</h5>
+        <h5 className="fw-bold">{formik.values.plan.subscription.endsWith("mo")?`$${formik.values.totalPrice}/mo`:`$${formik.values.totalPrice}/yr`}</h5>
       </div>
     </div>
   );
