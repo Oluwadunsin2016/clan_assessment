@@ -24,8 +24,8 @@ const [isChecked, setIsChecked] = useState(false);
   const [selectedAdd_ons, setSelectedAdd_ons] = useState([])
 
 
-  const submitForm = (values) => {
-  console.log(values);
+  const submitForm = () => {
+  console.log();
 
     setCompleted(true);
   };
@@ -33,27 +33,42 @@ const [isChecked, setIsChecked] = useState(false);
 
   const formik= useFormik({
 initialValues:{
-userDetails:{
 name:'',
-Email:'',
-phone_number:''
-},
+email:'',
+phone_number:'',
 plan:{},
 add_ons:[],
 totalPrice:0,
 },
 
-onSubmit:submitForm,
-// onSubmit:(values)=>{
-// values.plan=plan
-// values.add_ons=selectedAdd_ons
-// console.log(values);
-// },
-validationSchema: yup.object({
-name: yup.string().required('This field is required').matches(/^[a-zA-Z]{3,}$/, 'It must be at least three characters'),
-email: yup.string().email().required('This field is required').matches(/^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/, 'Must follow the email pattern'),
-phone_number: yup.string().required('This field is required').matches(/^[0-9]{11}$/, 'It must be eleven digits')
-})
+// onSubmit:submitForm,
+
+ validate: (values) => {
+      let errors = {};
+      let regExForName = /^[a-zA-Z]{3,}$/;
+      // let regExForEmail = /^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/;
+      let regExForEmail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      let regExForPhoneNumber = /^[0-9]{11}$/;
+      if (!values.name) {
+        errors.name = "This field is required";
+      }else if (!regExForName.test(values.name)) {
+        errors.name = 'It must be at least three characters';
+      }
+
+      if (!values.email) {
+        errors.email = "This field is required";
+      }else if (!regExForEmail.test(values.email)) {
+        errors.email = 'Must follow the email pattern e.g abc@example.com';
+      }
+
+
+      if (!values.phone_number) {
+        errors.phone_number = "This field is required";
+      }else if (!regExForPhoneNumber.test(values.phone_number)) {
+        errors.phone_number = 'It must be eleven digits';
+      }
+      return errors;
+    },
 })
 
   const goToNext = () => {
