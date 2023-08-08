@@ -12,6 +12,9 @@ background-color: #F8F9FE;
 .change{
 text-decoration: underline;
 }
+.change:hover{
+cursor: pointer;
+}
 
 .total h5{
 color: #174A8B;

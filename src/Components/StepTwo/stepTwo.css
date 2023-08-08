@@ -5,14 +5,18 @@ font-weight: bolder;
 color: rgb(170, 168, 168);
 }
 
-.arcade, .advanced, .pro{
+.plan{
 border: 1px solid rgb(192, 191, 191);
 }
 
-.arcade:hover, .advanced:hover, .pro:hover{
+.plan:hover{
 cursor: pointer;
 }
 
 .active {
   border:1px solid #174A8B;
+}
+
+.ticked{
+color: #174A8B !important;
 }
