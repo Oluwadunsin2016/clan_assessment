@@ -20,13 +20,10 @@ const App = () => {
 const [isChecked, setIsChecked] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [completed, setCompleted] = useState(false);
-  const [plan, setPlan] = useState({})
-  const [selectedAdd_ons, setSelectedAdd_ons] = useState([])
 
 
   const submitForm = () => {
-  console.log();
-
+formik.submitForm()
     setCompleted(true);
   };
 
@@ -41,13 +38,14 @@ add_ons:[],
 totalPrice:0,
 },
 
-// onSubmit:submitForm,
+onSubmit: (values) => {
+      console.log(values);
+    },
 
  validate: (values) => {
       let errors = {};
-      let regExForName = /^[a-zA-Z]{3,}$/;
-      // let regExForEmail = /^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/;
-      let regExForEmail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      let regExForName = /^[a-zA-Z\s]{3,}$/;
+      let regExForEmail = /^([A-Za-z0-9]{3,})[@]([a-z]{2,8})[.]([a-z]{2,})$/;
       let regExForPhoneNumber = /^[0-9]{11}$/;
       if (!values.name) {
         errors.name = "This field is required";

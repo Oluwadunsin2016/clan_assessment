@@ -5,9 +5,7 @@ import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 
 const StepTwo = ({ formik,isChecked, setIsChecked}) => {
-// const [selectedId, setselectedId] = useState(sessionStorage.PlanId? JSON.parse(sessionStorage.getItem("PlanId")):0)
 const [selectedId, setselectedId] = useState(0)
-console.log(selectedId);
 const [plans, setPlans] = useState([
 {
 id:1,
@@ -102,7 +100,6 @@ free:' ',
   };
 
   const select=(id)=>{
-// sessionStorage.setItem('PlanId',JSON.stringify(id));
   setselectedId(id);
 const selected=plans.find(plan=>plan.id==id)
 formik.values.plan=selected

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./stepFour.css";
 
 const StepFour = ({ formik,setCurrentPage }) => {
-  console.log(formik.values);
+  // console.log(formik.values);
   const change=()=>{
   setCurrentPage(2)
   }
