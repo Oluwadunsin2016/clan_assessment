@@ -35,21 +35,21 @@ const StepThree = ({formik, isChecked }) => {
           name: "Online services",
           access: "Access to multiplayer games",
           subscription: "+$10/yr",
-          duration: 1,
+          duration: 10,
         },
         {
           id: 2,
           name: "Larger storage",
           access: "Extra 1TB of cloud save",
           subscription: "+$20/yr",
-          duration: 2,
+          duration: 20,
         },
         {
           id: 3,
           name: "Customizable profile",
           access: "Custom theme on your profile",
           subscription: "+$20/yr",
-          duration: 2,
+          duration: 20,
         },
       ]);
     } else {
